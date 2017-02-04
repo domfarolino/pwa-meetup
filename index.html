@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Node Cincy PWA</title>
+
+    <meta name="author" content="Dom Farolino">
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <meta name="theme-color" content="#5F5E5E">
+
+    <!-- Icons -->
+    <link rel="icon" type="image/png" sizes="192x192" href="/imgs/pwa@192.png"/>
+    <link rel="icon" type="image/png" sizes="32x32" href="/imgs/pwa@32.png"/>
+
+    <link rel="manifest" href="/manifest.json">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Roboto">
+    <link rel="stylesheet" href="/css/master.css" media="screen">
+  </head>
+  <body>
+    <header>
+      <div class="header-content">
+        <img src="/imgs/pwa.svg"alt="pwa icon">
+        <h2 class="header-title">Node Cincy PWA</h2>
+        <div class="nav-container">
+          <input id="menu-toggle" type="checkbox" class="menu-toggle" />
+          <label class="menu-toggle-label" for="menu-toggle">
+            <svg height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M0 0h24v24H0z" fill="none"/>
+              <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+            </svg>
+          </label>
+          <nav>
+            <ul>
+              <li><a id="a-home" href="/">Grab Weather</a></li>
+              <li><a id="a-resume" href="/weather">Grab JSON</a></li>
+              <li><a id="a-public-keys" href="/image">Grab Image</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+    <script src="/js/app.js" async defer></script>
+  </body>
+</html>
