@@ -3,7 +3,7 @@
   "short_name": "Node Cincy PWA",
   "start_url": ".",
   "display": "standalone",
-  "background_color": "#5F5E5E",
+  "background_color": "#3d6180",
   "description": "Progressive Web App demonstration at Node Cincy",
   "icons": [{
     "src": "/static/imgs/pwa@48.png",
