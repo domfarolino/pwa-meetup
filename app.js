@@ -34,24 +34,25 @@ app.get('*', (request, response, next) => {
   next();
 });
 
+app.get(/\/([^.]*$)/, (request, response) => {
+  request.requestedPage = request.params[0] || 'index'; // should be something like `` or `path`
+
+  const fileToRender = ('partial' in request.query) ? `partials/${request.requestedPage}` : 'app-shell';
+
+  response.render(path.join(`${fileToRender}.ejs`), {}, function(err, document) {
+    const timeout = ('partial' in request.query) ? 1000 : 0;
+    setTimeout(_ => {
+      response.send(document);
+    }, timeout);
+  });
+});
 
 /**
- * Support for partial view rendering. This handler matches requests like: `/`, `/path`, and `/path/`
- * See regex in action: https://regex101.com/r/ciRbkx/4
- * We render the proper view partial giving it a boolean in the data object related to whether the
- * ?partial query parameter exists in the request. View partials (in ./public) will load in the header
- * and footer partials if the ?partial query parameter does not exist. If the ?partial parameter exists
- * the view partial will not pull in the header and footer, as it is just the main partial content we want
- * and not an entire user-ready page.
- */
-app.get(/\/([^.]*$)/, express.static('.'));
-
-/**
- * Static
+ * Static asset & error handling
  */
 app.use('/static', express.static(path.join(__dirname, 'public')));
 
-var listener = app.listen(8080, function() {
+const listener = app.listen(8080, function() {
   console.log('Listening on port', listener.address().port);
 });
 
@@ -61,8 +62,6 @@ app.use(function (req, res, next) {
   err.status = 404;
   next(err);
 });
-
-// error handlers
 
 // development error handler
 // will print stacktrace
