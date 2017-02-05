@@ -21,7 +21,7 @@ class App {
   }
 
   go(url) {
-    console.log('App:go');
+    console.log(`App:go(/${url})`);
     window.history.pushState(null, null, url);
     return this._onChanged();
   }
@@ -33,7 +33,7 @@ class App {
 
       link.addEventListener('click', evt => {
         this.go(evt.target.firstChild.href);
-      });
+      }, true);
 
       /**
        * If the user clicks a link inside a list item

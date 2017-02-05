@@ -4,12 +4,17 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "http-server",
+    "start": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "http-server": "^0.9.0"
+    "body-parser": "^1.16.0",
+    "cookie-parser": "^1.4.3",
+    "ejs": "^2.5.5",
+    "express": "^4.14.1",
+    "http-server": "^0.9.0",
+    "morgan": "^1.8.0"
   }
 }
