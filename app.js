@@ -50,7 +50,7 @@ app.get(/\/([^.]*$)/, (request, response) => {
 /**
  * Static asset & error handling
  */
-app.use('/static', express.static(path.join(__dirname, 'public')));
+app.use('/', express.static(path.join(__dirname, 'public')));
 
 const listener = app.listen(8080, function() {
   console.log('Listening on port', listener.address().port);
