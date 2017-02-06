@@ -12,15 +12,7 @@ class App {
     });
 
     this._bootstrapNavLinks();
-    this._registerServiceWorker();
     this._onChanged();
-  }
-
-  _registerServiceWorker() {
-    if ('serviceWorker' in navigator) {
-      console.log('About to load the service worker yay');
-      navigator.serviceWorker.register('/sw.js', {scope: '/'});
-    }
   }
 
   _queueSpinner() {
